@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "redis1": {
+      "containerPorts": "6379:6379",
+      "secretStore": "LocalSecretsFile",
+      "containerName": "redis",
+      "containerImage": "redis:alpine",
+      "type": "redis.container",
+      "connectionId": "CacheConnection",
+      "dynamicId": null
+    }
+  }
+}
