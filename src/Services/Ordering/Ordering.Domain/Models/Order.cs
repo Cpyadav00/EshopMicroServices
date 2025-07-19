@@ -40,21 +40,17 @@ public class Order : Aggregate<OrderId>
     }
 
     public  void Update(
-       OrderId orderId,
-       CustomerId customerId,
        OrderName orderName,
        Address shippingAddress,
        Address billingAddress,
        Payment payment,
-       List<OrderItem> orderItems)
+       OrderStatus status)
     {
-        Id = orderId;
-        CustomerId = customerId;
         OrderName = orderName;
         ShippingAddress = shippingAddress;
         BillingAddress = billingAddress;
         Payment = payment;
-
+        Status = status;
 
         AddDomainEvents(new OrderUpdatedEvent(this));
 
