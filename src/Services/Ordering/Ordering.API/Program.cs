@@ -1,23 +1,26 @@
 using Ordering.API;
 using Ordering.Application;
 using Ordering.Infrastructure;
+using Ordering.Infrastructure.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 //add services to the container
 
-//----------------
-//Infracture -EF core
-//Application -meditar
-//Api-carter healthchecks
+
 
 builder.Services
  .AddApplicationServices()
- .AddApplicationServices(builder.Configuration)
+ .AddApplicationIfractureServices(builder.Configuration)
  .AddApiServices();
 
 
 var app = builder.Build();
 
 //Configure the http request pipline
+app.UseApiServices();
+if(app.Environment.IsDevelopment())
+{
+    await app.InitialiseDatabaseAsync();
+}
 
 app.Run();

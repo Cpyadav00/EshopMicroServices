@@ -23,8 +23,7 @@ public class Order : Aggregate<OrderId>
         OrderName orderName,
         Address shippingAddress,
         Address billingAddress,
-        Payment payment,
-        List<OrderItem> orderItems)
+        Payment payment)
     {
         var order = new Order
         {
