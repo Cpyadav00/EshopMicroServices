@@ -1,5 +1,6 @@
 using HealthChecks.UI.Client;
 using Discount.Grpc;
+using BuildingBlocks.Messaging.Mass_Transit;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +42,8 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
             HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     };
 });
+
+builder.Services.AddMessageBroker(builder.Configuration);
 
 
 builder.Services.AddHealthChecks()

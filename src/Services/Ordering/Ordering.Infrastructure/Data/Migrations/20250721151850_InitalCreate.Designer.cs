@@ -13,8 +13,8 @@ using Ordering.Infrastructure.Data;
 namespace Ordering.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250719111406_InitalCreateRETRY")]
-    partial class InitalCreateRETRY
+    [Migration("20250721151850_InitalCreate")]
+    partial class InitalCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -123,8 +123,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("ZipCode")
                                 .IsRequired()
-                                .HasMaxLength(5)
-                                .HasColumnType("nvarchar(5)");
+                                .HasMaxLength(10)
+                                .HasColumnType("nvarchar(10)");
                         });
 
                     b.ComplexProperty<Dictionary<string, object>>("OrderName", "Ordering.Domain.Models.Order.OrderName#OrderName", b1 =>
@@ -202,8 +202,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("ZipCode")
                                 .IsRequired()
-                                .HasMaxLength(5)
-                                .HasColumnType("nvarchar(5)");
+                                .HasMaxLength(10)
+                                .HasColumnType("nvarchar(10)");
                         });
 
                     b.HasKey("Id");

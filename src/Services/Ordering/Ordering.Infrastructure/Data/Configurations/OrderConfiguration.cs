@@ -34,7 +34,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             addressBuilder.Property(a => a.AddressLine).HasMaxLength(180).IsRequired();
             addressBuilder.Property(a => a.Country).HasMaxLength(50).IsRequired();
             addressBuilder.Property(a => a.State).HasMaxLength(50).IsRequired();
-            addressBuilder.Property(a => a.ZipCode).HasMaxLength(5).IsRequired();
+            addressBuilder.Property(a => a.ZipCode).HasMaxLength(10).IsRequired();
         });
         builder.ComplexProperty(o => o.BillingAddress, addressBuilder =>
         {
@@ -44,7 +44,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             addressBuilder.Property(a => a.AddressLine).HasMaxLength(180).IsRequired();
             addressBuilder.Property(a => a.Country).HasMaxLength(50).IsRequired();
             addressBuilder.Property(a => a.State).HasMaxLength(50).IsRequired();
-            addressBuilder.Property(a => a.ZipCode).HasMaxLength(5).IsRequired();
+            addressBuilder.Property(a => a.ZipCode).HasMaxLength(10).IsRequired();
         });
 
         builder.ComplexProperty(o => o.Payment, payment =>

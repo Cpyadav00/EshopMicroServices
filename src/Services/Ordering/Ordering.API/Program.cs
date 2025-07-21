@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services
- .AddApplicationServices()
+ .AddApplicationServices(builder.Configuration)
  .AddApplicationIfractureServices(builder.Configuration)
  .AddApiServices(builder.Configuration);
 
